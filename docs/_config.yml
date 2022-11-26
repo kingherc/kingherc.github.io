@@ -1,0 +1,120 @@
+title: "Blog of Iraklis Psaroudakis"
+description: >-
+  Personal blog of Iraklis Psaroudakis.
+domain: www.kingherc.com
+url: http://www.kingherc.com
+name: kingherc
+real_name: "Iraklis Psaroudakis"
+twitter_username: kherc
+github_username:  kingherc
+repository: "kingherc/kingherc.github.io"
+
+# Build settings
+theme: minimal-mistakes-jekyll
+# remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+plugins:
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-sitemap
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+paginate: 5
+minimal_mistakes_skin: "dark"
+locale: "en"
+logo: "/assets/icons/kingherc.com.png"
+search: true
+lunr:
+  search_within_pages: true
+
+social:
+  type: Person
+  name: Iraklis Psaroudakis
+  links:
+    - "https://www.linkedin.com/in/kingherc"
+    - "http://scholar.google.com/citations?user=TUcmoosAAAAJ"
+    - "https://github.com/kingherc/"
+    - "https://www.facebook.com/kingherc"
+    - "https://instagram.com/kingherc"
+    - "https://twitter.com/kherc"
+
+# Google Analytics from https://littlebigtech.net/posts/setting-up-cookie-compliance-for-google-analytics-on-a-jekyll-site/
+google_analytics: G-97YMLJS592
+
+author:
+  name: "Iraklis Psaroudakis"
+  avatar: "/assets/about/profilepic_150.jpg"
+  bio: "I am Iraklis Psaroudakis, a.k.a. \"kingherc\" on the internet. I work remotely as a Principal Software Engineer at Elastic. I completed my Ph.D. in Computer Science, at the DIAS lab of EPFL. This is my personal website that serves as my blog and a way to express myself."
+  #location: "Greece (remote)"
+  links:
+    - label: "About me, contact, and CV"
+      icon: "fas fa-fw fa-link"
+      url: "/about"
+    - label: "RSS feed"
+      icon: "fas fa-fw fa-rss"
+      url: "/feed.xml"
+    - label: "View my LinkedIn profile"
+      icon: "fab fa-fw fa-linkedin"
+      url: "http://www.linkedin.com/in/kingherc"
+    - label: "View my GitHub profile"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/kingherc"
+    - label: "View citations on Google Scholar"
+      icon: "fab fa-fw fa-google"
+      url: "http://scholar.google.com/citations?user=TUcmoosAAAAJ"
+    - label: "View my Facebook profile"
+      icon: "fab fa-fw fa-facebook"
+      url: "https://facebook.com/kingherc"
+    - label: "View my Instagram profile"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://instagram.com/kingherc"
+    - label: "View my Twitter profile"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/kherc"
+    - label: "View my videos on Vimeo"
+      icon: "fab fa-fw fa-vimeo"
+      url: "http://vimeo.com/kingherc"
+
+comments:
+  provider: "giscus"
+  giscus:
+    repo_id              : "R_kgDOH_A3Qg"
+    category_name        : "Comments"
+    category_id          : "DIC_kwDOH_A3Qs4CS5p0"
+    discussion_term      : "pathname"
+    reactions_enabled    : "1"
+    theme                : "dark"
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author: kingherc
+      read_time: false
+      comments: true
+      share: false
+      related: false
+      show_date: true
+      author_profile: true
+

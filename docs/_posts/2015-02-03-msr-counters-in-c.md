@@ -1,0 +1,31 @@
+---
+id: 31
+title: Accessing Intel MSR hardware counters directly in C on Linux
+date: 2015-02-03T01:52:54+01:00
+permalink: /archives/31
+categories:
+  - Linux
+---
+Intel's hardware counters are a real gem to anyone trying to delve into the performance characteristics of the system. There exist hardware counters in almost every corner of the processor. One can measure instructions, cycles, cache misses, memory bandwidth, and even inter-socket details such as Intel QPI traffic. The full list of H/W counters can be found in [Intel's Software Developer manuals](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html). And they are ever-expanding with every new architecture.
+
+There are several ways to measure H/W counters. For most stuff, there's [perf](https://perf.wiki.kernel.org/index.php/Main_Page), free and included in most Linux distribution repositories, which supports many H/W counters out-of-the-box and you can also access more H/W counters by simply specifying their details (which you can find on the Intel manuals for your architecture). For more advanced measurements, you can use [Intel's VTune Amplifier](https://software.intel.com/en-us/intel-vtune-amplifier-xe) (commercial), which offers quick templates to measure classes of H/W counters with tons of configurations options. The UI is extremely helpful as well. But VTune is commercial. Another great free and open-source solution is [likwid](https://code.google.com/p/likwid/). And for the experts who need to quickly gain access to custom H/W counters from within their code, there's the free open-source [Intel Performance Counter Monitor (PCM)](https://software.intel.com/en-us/articles/intel-performance-counter-monitor) tool.
+
+In my case, I needed to build a profiler that accesses H/W counters and measures them. For this reason, I based my profiler on top of Intel's PCM great tool and modified the source code to fit my needs (specify which H/W counters to measure etc.). The PCM tool accesses H/W counters through the `/dev/cpu/*/msr` virtual files (accessible if the [msr kernel module](http://man7.org/linux/man-pages/man4/msr.4.html) is loaded). The problem is that on recent Linux distributions, access to the msr is allowed only with root privileges. Unless you can run your application always with sudo rights, this is a problem. A potential solution is forking off to a separate process with elevated privileges, that can access the MSR counters, and you communicate with it -- see the [likwid MSRDaemon](https://code.google.com/p/likwid/wiki/MSRDaemon). This, however, also comes with some disadvantages: (a) you need a separate process, and (b) there's a small time overhead accessing the H/W counters. Ideally, you would like to access the H/W counters from within your application.
+
+Turns out there's no easy way around this problem, other than having some kind of root privileges assigned to your application. The simplest way I found was using Linux facilities for changing user IDs dynamically. You set the setuid permission flag for your application and set ownership to root:
+
+  * `chown root app`
+  * `chmod u+s app`
+
+This means that whoever starts the application will run it with his real user ID, but the effective user ID will be root. This means that the application can have elevated privileges, but still can impersonate the caller user ID. Immediately at your `main()`, you need to drop the root effective user ID, to drop the elevated privileges for most of your application:
+
+  * Call [`getresuid()`](http://linux.die.net/man/2/getresuid) to get the real user ID
+  * Call [`setreuid(-1, ruid)`](http://linux.die.net/man/2/setreuid) to set the effective user to the real user
+
+Now, your application can run normally under the real user ID. The root privileges, however, are not lost. They are saved in the "saved user ID". See [this](http://en.wikipedia.org/wiki/User_identifier) for a quick intro to real (`ruid`), effective (`euid`), and saved (`suid`) user IDs. Now, we can change back to root whenever we need the elevated privileges.
+
+Thus, in our profiler thread, we can call `setreuid(-1, 0)` to change to root and access the Intel MSR counters directly. Since the `suid` is 0, the `setreuid()` function succeeds and turns the effective user ID to root. Be careful, however: the libc `setreuid()` function changes the effective user ID for the whole process. If you wish to change the effective user ID only for your profiler thread, you need to directly `syscall()` the `setreuid` system call. PThreads can have separate effective user IDs, although it is strongly [not recommended](http://linux.die.net/man/7/pthreads). Hint: while your profiler thread is running under root `euid`, you can touch file system using the real user ID. Simply call the setfsuid with the `ruid`.
+
+Now, there are two disadvantages in the above tactic: (a) you're having the `setuid` permission bit set, which may introduce some security vulnerabilities, but I guess we have already crossed some line by accessing MSR counters, and (b) the `setuid` permission bit is handled with precaution in many places in the kernel. For example, you cannot easily set the `setuid` bit for scripts, but only for executables. And the most annoying thing: the `LD_LIBRARY_PATH` environmental variable is completely ignored when you run the executable. This means that dynamically loaded libraries are suddenly not being able to be found.
+
+A solution to the `LD_LIBRARY_PATH` problem is linking your executable by specifying several [`rpath`](http://en.wikipedia.org/wiki/Rpath) (run-time search path). You can do that with gcc and the `-rpath` directive. You can also change the rpath later with e.g. [`chrpath`](http://linux.die.net/man/1/chrpath). rpath can also be set to the special value `$ORIGIN`, which means that the dynamic libraries should be searched at the path of the executable. Linux, however, ignores `$ORIGIN` for executables that have the `setuid` bit with root privileges, as a security precaution. Thus, you can only specify absolute paths. But, it should be sufficient for most cases, and the executable should now be runnable, and your profiler thread should be able to happily access the MSR counters directly.
