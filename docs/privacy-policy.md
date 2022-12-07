@@ -8,7 +8,7 @@ layout: single
 
 ## Who we are
 
-Our website address is http://www.kingherc.com/ or http://kingherc.github.io/. It is the personal website and blog of Iraklis Psaroudakis (contact e-mail mentioned in the <a href="/about.html">About</a> page).
+Our website address is https://www.kingherc.com/ or https://kingherc.github.io/. It is the personal website and blog of Iraklis Psaroudakis (contact e-mail mentioned in the <a href="/about.html">About</a> page).
 
 ## Personal data collected
 

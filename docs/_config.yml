@@ -2,7 +2,7 @@ title: "Blog of Iraklis Psaroudakis"
 description: >-
   Personal blog of Iraklis Psaroudakis.
 domain: www.kingherc.com
-url: http://www.kingherc.com
+url: https://www.kingherc.com
 name: kingherc
 real_name: "Iraklis Psaroudakis"
 twitter_username: kherc
@@ -50,7 +50,7 @@ social:
   name: Iraklis Psaroudakis
   links:
     - "https://www.linkedin.com/in/kingherc"
-    - "http://scholar.google.com/citations?user=TUcmoosAAAAJ"
+    - "https://scholar.google.com/citations?user=TUcmoosAAAAJ"
     - "https://github.com/kingherc/"
     - "https://www.facebook.com/kingherc"
     - "https://instagram.com/kingherc"
@@ -79,7 +79,7 @@ author:
       url: "https://github.com/kingherc"
     - label: "View citations on Google Scholar"
       icon: "fab fa-fw fa-google"
-      url: "http://scholar.google.com/citations?user=TUcmoosAAAAJ"
+      url: "https://scholar.google.com/citations?user=TUcmoosAAAAJ"
     - label: "View my Facebook profile"
       icon: "fab fa-fw fa-facebook"
       url: "https://facebook.com/kingherc"
@@ -91,7 +91,7 @@ author:
       url: "https://twitter.com/kherc"
     - label: "View my videos on Vimeo"
       icon: "fab fa-fw fa-vimeo"
-      url: "http://vimeo.com/kingherc"
+      url: "https://vimeo.com/kingherc"
 
 comments:
   provider: "giscus"
