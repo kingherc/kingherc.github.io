@@ -15,7 +15,7 @@ My name is Iraklis Psaroudakis and I'm also known as "kingherc" on the internet.
 
 ### Contact me
 
-You can contact me by writing an e-mail to the following address: ![My e-mail address](/assets/about/email.png){:width="25%"}
+You can contact me by writing an e-mail to the following address: ![My e-mail address](/assets/about/email.png){:width="35%"}
 
 ### Information & CV
 
