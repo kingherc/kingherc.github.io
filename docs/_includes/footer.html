@@ -1,6 +1,8 @@
 
-  <div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.real_name | default: site.name }}. 
-  Click <a href="/privacy-policy.html">here</a> to view our privacy policy.
+  <div class="page__footer-copyright">
+    &copy; {{ site.time | date: '%Y' }} {{ site.real_name | default: site.name }}. 
+    <a href="/about">About/credits</a>.
+    <a href="/privacy-policy">Privacy policy</a>.
   </div>
 
   {% include cookie-consent.html %}
