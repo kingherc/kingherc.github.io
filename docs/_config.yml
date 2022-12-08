@@ -117,4 +117,37 @@ defaults:
       related: false
       show_date: true
       author_profile: true
+      author:
+        name: "Iraklis Psaroudakis"
+        avatar: "/assets/about/profilepic_150.jpg"
+        bio: "Principal Software Engineer at Elastic. This is my personal blog."
+        #location: "Greece (remote)"
+        links:
+          - label: "About me, contact, and CV"
+            icon: "fas fa-fw fa-link"
+            url: "/about.html"
+          - label: "RSS feed"
+            icon: "fas fa-fw fa-rss"
+            url: "/feed.xml"
+          - label: "View my LinkedIn profile"
+            icon: "fab fa-fw fa-linkedin"
+            url: "https://www.linkedin.com/in/kingherc"
+          - label: "View my GitHub profile"
+            icon: "fab fa-fw fa-github"
+            url: "https://github.com/kingherc"
+          - label: "View citations on Google Scholar"
+            icon: "fab fa-fw fa-google"
+            url: "https://scholar.google.com/citations?user=TUcmoosAAAAJ"
+          - label: "View my Facebook profile"
+            icon: "fab fa-fw fa-facebook"
+            url: "https://facebook.com/kingherc"
+          - label: "View my Instagram profile"
+            icon: "fab fa-fw fa-instagram"
+            url: "https://instagram.com/kingherc"
+          - label: "View my Twitter profile"
+            icon: "fab fa-fw fa-twitter-square"
+            url: "https://twitter.com/kherc"
+          - label: "View my videos on Vimeo"
+            icon: "fab fa-fw fa-vimeo"
+            url: "https://vimeo.com/kingherc"
 
