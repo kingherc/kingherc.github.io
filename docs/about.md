@@ -34,7 +34,7 @@ You can contact me by writing an e-mail to the following address: ![My e-mail ad
 
 ### Website information and credits
 
-The website's privacy policy can be found [here](/privacy-policy).
+The website's privacy policy can be found [here](/privacy-policy.html).
 
 The website is hosted through [GitHub Pages](https://pages.github.com/) and powered by [Jekyll](https://jekyllrb.com). The theme of the website is [Minimal Mistakes](https://mademistakes.com/work/minimal-mistakes-jekyll-theme/), whose license and included material can be found [here](https://mmistakes.github.io/minimal-mistakes/docs/license/).
 

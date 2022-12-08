@@ -1,6 +1,6 @@
 # main links
 main:
    - title: "About"
-     url: /about
+     url: /about.html
    - title: "Privacy policy"
-     url: /privacy-policy
+     url: /privacy-policy.html
