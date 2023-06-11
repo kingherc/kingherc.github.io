@@ -30,7 +30,7 @@ The agenda of the presentation revolves around the topics:
 * How Elasticsearch scales out with primary and replica shards.
 * How distributed searches & aggregations are executed on multiple machines.
 * Shard recovery when a machine fails.
-* How core information metadata on cluster state is coordinated wtih consensus across the cluster machines.
+* How core information metadata on cluster state is coordinated with consensus across the cluster machines.
 * Scaling with data streams for append-only time series data.
 * Scaling with Index Lifecycle Management (ILM) across tiers of data nodes with different cost/performance characteristics.
 * Future vision on scaling with serverless.
