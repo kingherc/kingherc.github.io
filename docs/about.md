@@ -22,6 +22,7 @@ You can contact me by writing an e-mail to the following address: ![My e-mail ad
   * [Résumé/CV](/assets/about/CV_Iraklis_Psaroudakis_web.pdf) (pdf)
   * [LinkedIn profile](http://www.linkedin.com/in/kingherc)
   * [Google Scholar profile](http://scholar.google.com/citations?user=TUcmoosAAAAJ)
+  * [Mastodon.social profile](https://mastodon.social/@kingherc)
   * [RSS feed of this website](/feed.xml)
 
 ### Badges and social networks
