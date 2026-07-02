@@ -1,6 +1,6 @@
 ---
 id: 36
-title: Elasticsearch presentation at Devoxx Greece 2023
+title: "Elasticsearch presentation at Devoxx Greece 2023"
 date: 2023-06-11T00:26:16+01:00
 permalink: /archives/36
 youtubeId: RjbFpjIBtOw
