@@ -15,7 +15,7 @@ The [meetup](https://www.meetup.com/devstaff/events/313173689/) was titled "Unlo
 
 ## My Presentation
 
-I had the pleasure of presenting "Software developer job hunting tips" at the meetup. It was a fantastic session filled with great discussions about navigating the modern tech job market! In this talk, I shared practical advice and strategies for software developers looking to land their next role in the competitive tech industry. We covered everything from optimizing your online presence to mastering technical interviews and understanding company culture.
+I was delighted to present "Software developer job hunting tips" at the meetup. It was a fantastic session filled with great discussions about navigating the modern tech job market! In this talk, I shared practical advice and strategies for software developers looking to land their next role in the competitive tech industry. We covered everything from optimizing your online presence to mastering technical interviews and understanding company culture.
 
 ## Resources
 
